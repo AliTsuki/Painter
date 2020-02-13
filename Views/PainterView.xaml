@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Painter.Views.PainterView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MenuGrid" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="#FF4E4E4E"/>
+                <Setter Property="ColumnSpacing" Value="5"/>
+                <Setter Property="RowSpacing" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+            <Style x:Key="MenuButton" TargetType="Button">
+                <Setter Property="Margin" Value="0, 0, 0, 0"/>
+                <Setter Property="BackgroundColor" Value="#D9D65B"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="BorderWidth" Value="4"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout
+            BackgroundColor="#FF202020">
+            <!-- Painting Image -->
+            <Image
+                x:Name="ImagePainting"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                Margin="20, 20, 20, 20"
+                Source=""
+                Aspect="AspectFit"
+                BackgroundColor="DimGray"/>
+            <!-- Standard Menu Buttons -->
+            <Grid
+                x:Name="GridStandardMenu"
+                Style="{StaticResource MenuGrid}"
+                AbsoluteLayout.LayoutBounds="0, 0, 70, 210"
+                AbsoluteLayout.LayoutFlags="None">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <!-- File Menu Open Button -->
+                <Button
+                    x:Name="ButtonFileMenuOpen"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Row="0"
+                    Text="File"
+                    Command="{Binding FileMenuCommand}"/>
+                <!-- Tool Menu Open Button -->
+                <Button
+                    x:Name="ButtonToolMenuOpen"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Row="1"
+                    Text="Tool"
+                    Command="{Binding ToolMenuCommand}"/>
+                <!-- Brush Menu Open Button -->
+                <Button
+                    x:Name="ButtonBrushMenuOpen"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Row="2"
+                    Text="Brush"
+                    Command="{Binding BrushMenuCommand}"/>
+            </Grid>
+            <!-- File Menu Buttons -->
+            <Grid
+                x:Name="GridFileMenu"
+                Style="{StaticResource MenuGrid}"
+                AbsoluteLayout.LayoutBounds="0, 0, 280, 70"
+                AbsoluteLayout.LayoutFlags="None"
+                TranslationY="-70">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <!-- File Menu Close Button -->
+                <Button
+                x:Name="ButtonFileMenuClose"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Column="0"
+                    Text="Back"
+                    Command="{Binding FileMenuCommand}"/>
+                <!-- New Image Button -->
+                <Button
+                    x:Name="ButtonNewImage"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Column="1"
+                    Text="NEW"
+                    Command="{Binding NewImageCommand}"/>
+                <!-- Load Image Button -->
+                <Button
+                    x:Name="ButtonLoadImage"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Column="2"
+                    Text="LOAD"
+                    Command="{Binding LoadImageCommand}"/>
+                <!-- Save Image Button -->
+                <Button
+                    x:Name="ButtonSaveImage"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Column="3"
+                    Text="SAVE"
+                    Command="{Binding SaveImageCommand}"/>
+            </Grid>
+            <!-- Tool Menu Buttons -->
+            <Grid
+                x:Name="GridToolMenu"
+                Style="{StaticResource MenuGrid}"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="SizeProportional"
+                TranslationX="-140">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <!-- Close Tool Menu Button -->
+                <Button
+                    x:Name="ButtonToolMenuClose"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="Back"
+                    Command="{Binding ToolMenuCommand}"/>
+                <!-- Select Paint Brush Button -->
+                <Button
+                    x:Name="ButtonSelectPaintBrush"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="PaintBrush"
+                    Command="{Binding SelectPaintBrushCommand}"/>
+                <!-- Select Eraser Button -->
+                <Button
+                    x:Name="ButtonSelectEraser"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Text="Eraser"
+                    Command="{Binding SelectEraserCommand}"/>
+                <!-- TODO: Add more tool options here -->
+            </Grid>
+            <!-- Brush Menu Buttons -->
+            <Grid
+                x:Name="GridBrushMenu"
+                Style="{StaticResource MenuGrid}"
+                AbsoluteLayout.LayoutBounds="0, 0, 140, 1080"
+                AbsoluteLayout.LayoutFlags="None"
+                TranslationX="-140">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <!-- Close Brush Menu Button -->
+                <Button
+                    x:Name="ButtonBrushMenuClose"
+                    Style="{StaticResource MenuButton}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="Back"
+                    Command="{Binding BrushMenuCommand}"/>
+                <!-- TODO: Add brush color and shape options here -->
+            </Grid>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
