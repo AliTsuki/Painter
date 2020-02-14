@@ -22,6 +22,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
+        <!-- TODO: Make grids fit to content -->
         <AbsoluteLayout
             BackgroundColor="#FF202020">
             <!-- Painting Image -->
@@ -118,8 +119,8 @@
             <Grid
                 x:Name="GridToolMenu"
                 Style="{StaticResource MenuGrid}"
-                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                AbsoluteLayout.LayoutFlags="SizeProportional"
+                AbsoluteLayout.LayoutBounds="0, 0, 140, 1080"
+                AbsoluteLayout.LayoutFlags="None"
                 TranslationX="-140">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="60"/>
